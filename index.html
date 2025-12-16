@@ -72,6 +72,7 @@
             width: 100%;
             box-sizing: border-box; /* Keeps padding inside width */
             transition: transform 0.2s, opacity 0.2s;
+            cursor: pointer; /* Ensures it looks clickable even if href is # */
         }
         .btn:active { transform: scale(0.98); }
         
@@ -139,10 +140,11 @@
 
         <a href="contact.vcf?v=2" class="btn btn-primary">Save to Phone Contacts</a>
 
-        <a href="https://www.linkedin.com/in/salman-tabatabai/" class="btn btn-secondary"target="_blank">LinkedIn Profile</a>
+        <a href="https://www.linkedin.com/in/salman-tabatabai/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
         
-        <a href="https://github.com/Salman-Tabatabai-AI" class="btn btn-secondary"target="_blank">GitHub Profile</a>
-        <a href="mailto:salman.tabatabai@gmail.com" class="btn btn-secondary">Email Me</a>
+        <a href="https://github.com/Salman-Tabatabai-AI" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        
+        <a href="#" class="btn btn-secondary" onclick="copyEmail(event)">salman.tabatabai@gmail.com</a>
 
         <div class="desktop-only">
             <img src="qr.png" alt="Scan to save" class="qr-img">
@@ -154,5 +156,27 @@
         </footer>
     </div>
 
+    <script>
+        function copyEmail(e) {
+            e.preventDefault(); // Prevents jump
+            const email = "salman.tabatabai@gmail.com";
+            const btn = e.target;
+            
+            navigator.clipboard.writeText(email).then(() => {
+                // Visual feedback
+                btn.innerText = "Copied to Clipboard! \u2713"; 
+                btn.style.backgroundColor = "#e8f0fe"; 
+                
+                // Reset back to showing the email after 2 seconds
+                setTimeout(() => {
+                    btn.innerText = email;
+                    btn.style.backgroundColor = ""; 
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert("Could not copy automatically. Email is: " + email);
+            });
+        }
+    </script>
 </body>
 </html>
