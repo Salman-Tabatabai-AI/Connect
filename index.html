@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Digital Card</title>
+    <title>Dr. Salman Tabatabai - AI Advisor</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -21,7 +21,11 @@
             padding: 40px 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             text-align: center;
+            display: flex; /* Flex needed for alignment */
+            flex-direction: column;
+            align-items: center;
         }
+        
         /* Profile Image */
         .profile-pic {
             width: 120px;
@@ -32,15 +36,29 @@
             border: 3px solid #fff;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
-        h1 { margin: 0; font-size: 24px; color: #222; }
-        .title { color: #666; font-size: 16px; margin-top: 5px; margin-bottom: 20px; }
         
+        h1 { margin: 0; font-size: 24px; color: #222; }
+        
+        .title { 
+            color: #666; 
+            font-size: 16px; 
+            margin-top: 5px; 
+            margin-bottom: 20px; 
+        }
+
         .bio {
             font-size: 15px;
             line-height: 1.6;
             color: #555;
             margin-bottom: 30px;
             padding: 0 10px;
+            text-align: left; /* Optional: Makes long text easier to read */
+        }
+        
+        /* Makes bold text darker than the grey bio text */
+        strong {
+            color: #222;
+            font-weight: 700;
         }
 
         /* Buttons */
@@ -51,6 +69,8 @@
             border-radius: 50px; /* Rounded pill shape */
             text-decoration: none;
             font-weight: 600;
+            width: 100%;
+            box-sizing: border-box; /* Keeps padding inside width */
             transition: transform 0.2s, opacity 0.2s;
         }
         .btn:active { transform: scale(0.98); }
@@ -62,7 +82,7 @@
             box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
         }
         
-        /* Social Links (Optional) */
+        /* Social Links */
         .btn-secondary {
             background-color: #f0f2f5;
             color: #333;
@@ -70,7 +90,8 @@
         }
         
         footer { margin-top: 40px; font-size: 12px; color: #999; }
-    /* DESKTOP QR CODE SECTION */
+
+        /* DESKTOP QR CODE SECTION */
         .desktop-only {
             margin-top: 30px;
             padding-top: 20px;
@@ -101,14 +122,19 @@
         <img src="Profile_FullRes.png" alt="Profile Picture" class="profile-pic">
 
         <h1>Dr. Salman Tabatabai, Ph.D.</h1>
-        <p class="title">AI Advisor- De-risking AI Strategy & Adoption</p>
+        
+        <p class="title">AI Advisor – <strong>De-risking AI Strategy & Adoption</strong></p>
 
         <p class="bio">
-            A PhD-qualified AI Leader with 13 years of experience bridging the gap between Scientific Rigour and Business Strategy. <br><br>
-            I specialize in architecting reliable AI solutions for complex industrial and research environments where data represents physical reality, not just digital metrics.<br><br>   
-My core value lies in de-risking AI adoption. I prevent organizations from investing in "hype-based" solutions by enforcing architectural soundness and scientific validation.<br> <br>
-            I build psychologically safe, high-performing teams that deliver robust Predictive and Generative AI solutions, transforming "complex math" into measurable business efficiency.<br><br> 
-            Let's de-risk your AI strategy and prevent losses!
+            A <strong>PhD-qualified AI Leader</strong> with <strong>13 years of experience</strong> bridging the gap between <strong>Scientific Rigour</strong> and <strong>Business Strategy</strong>. <br><br>
+            
+            I specialize in <strong>architecting reliable AI solutions</strong> for complex industrial and research environments where data represents physical reality, not just digital metrics.<br><br>   
+            
+            My core value lies in <strong>de-risking AI adoption</strong>. I prevent organizations from investing in "hype-based" solutions by enforcing <strong>architectural soundness</strong> and scientific validation.<br> <br>
+            
+            I build <strong>psychologically safe, high-performing teams</strong> that deliver robust Predictive and Generative AI solutions, transforming "complex math" into <strong>measurable business efficiency</strong>.<br><br> 
+            
+            <strong>Let's de-risk your AI strategy and prevent losses!</strong>
         </p>
 
         <a href="contact.vcf" class="btn btn-primary">Save to Phone Contacts</a>
@@ -120,6 +146,7 @@ My core value lies in de-risking AI adoption. I prevent organizations from inves
             <img src="qr.png" alt="Scan to save" class="qr-img">
             <p class="qr-help">Scan with your phone to save contact</p>
         </div>
+
         <footer>
             <p>Let's connect and hear more about your strategy and how I can be of service!</p>
         </footer>
