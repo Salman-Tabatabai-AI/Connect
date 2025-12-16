@@ -70,12 +70,35 @@
         }
         
         footer { margin-top: 40px; font-size: 12px; color: #999; }
+    /* DESKTOP QR CODE SECTION */
+        .desktop-only {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            display: none; /* Hidden by default (for mobile) */
+        }
+        .qr-img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        .qr-help { font-size: 13px; color: #888; margin: 0; }
+
+        /* Logic: Only show QR code if screen is wider than 600px (Tablets/PC) */
+        @media (min-width: 600px) {
+            .desktop-only { display: block; }
+            .container {
+                margin-top: 50px; /* Adds space from top on PC */
+                margin-bottom: 50px;
+                border-radius: 20px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
+        <img src="Profile_FullRes.png" alt="Profile Picture" class="profile-pic">
 
         <h1>Dr. Salman Tabatabai, Ph.D.</h1>
         <p class="title">AI Advisor for Enterprise and Academia</p>
@@ -89,9 +112,13 @@ My core value lies in de-risking AI adoption. I prevent organizations from inves
 
         <a href="contact.vcf" class="btn btn-primary">Save to Phone Contacts</a>
 
-        <a href="https://github.com/yourusername" class="btn btn-secondary">GitHub Profile</a>
+        <a href="https://github.com/Salman-Tabatabai-AI" class="btn btn-secondary">GitHub Profile</a>
         <a href="mailto:salman.tabatabai@gmail.com" class="btn btn-secondary">Email Me</a>
 
+        <div class="desktop-only">
+            <img src="qr.png" alt="Scan to save" class="qr-img">
+            <p class="qr-help">Scan with your phone to save contact</p>
+        </div>
         <footer>
             <p>Let's connect and hear more about your strategy and how I can be of service!</p>
         </footer>
