@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dr. Salman Tabatabai - AI Advisor</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -21,7 +24,7 @@
             padding: 40px 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             text-align: center;
-            display: flex; /* Flex needed for alignment */
+            display: flex; 
             flex-direction: column;
             align-items: center;
         }
@@ -52,10 +55,9 @@
             color: #555;
             margin-bottom: 30px;
             padding: 0 10px;
-            text-align: left; /* Optional: Makes long text easier to read */
+            text-align: left; 
         }
         
-        /* Makes bold text darker than the grey bio text */
         strong {
             color: #222;
             font-weight: 700;
@@ -63,24 +65,27 @@
 
         /* Buttons */
         .btn {
-            display: block;
+            display: flex; /* Critical for icon alignment */
+            justify-content: center;
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+            
             padding: 15px;
             margin-bottom: 12px;
-            border-radius: 50px; /* Rounded pill shape */
+            border-radius: 50px; 
             text-decoration: none;
             font-weight: 600;
             width: 100%;
-            box-sizing: border-box; /* Keeps padding inside width */
+            box-sizing: border-box; 
             transition: transform 0.2s, opacity 0.2s, background-color 0.2s;
-            cursor: pointer;
-            
-            /* Flex ensures the icon and text stay aligned nicely */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 8px; /* Space between icon and text */
+            cursor: pointer; 
         }
         .btn:active { transform: scale(0.98); }
+
+        /* Icon sizing fix */
+        .btn i {
+            font-size: 18px; /* Slightly larger icons */
+        }
         
         /* The Main 'Save Contact' Button */
         .btn-primary {
@@ -96,9 +101,9 @@
             border: 1px solid #e1e4e8;
         }
 
-        /* Special style for the Email button to accommodate the longer text */
+        /* Smaller font for the email address button to fit text */
         .btn-email {
-            font-size: 14px; /* Slightly smaller font to fit the long email */
+            font-size: 14px; 
         }
         
         footer { margin-top: 40px; font-size: 12px; color: #999; }
@@ -108,7 +113,7 @@
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #eee;
-            display: none; /* Hidden by default (for mobile) */
+            display: none; 
         }
         .qr-img {
             width: 150px;
@@ -117,11 +122,10 @@
         }
         .qr-help { font-size: 13px; color: #888; margin: 0; }
 
-        /* Logic: Only show QR code if screen is wider than 600px (Tablets/PC) */
         @media (min-width: 600px) {
             .desktop-only { display: block; }
             .container {
-                margin-top: 50px; /* Adds space from top on PC */
+                margin-top: 50px; 
                 margin-bottom: 50px;
                 border-radius: 20px;
             }
@@ -149,14 +153,21 @@
             <strong>Let's De-risk Your AI Strategy and Adoption!</strong>
         </p>
 
-        <a href="contact.vcf?v=2" class="btn btn-primary">Save to Phone Contacts</a>
+        <a href="contact.vcf?v=2" class="btn btn-primary">
+            <i class="fas fa-user-plus"></i> Save to Phone Contacts
+        </a>
 
-        <a href="https://www.linkedin.com/in/salman-tabatabai/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a>
+        <a href="https://www.linkedin.com/in/salman-tabatabai/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-linkedin"></i> LinkedIn Profile
+        </a>
         
-        <a href="https://github.com/Salman-Tabatabai-AI" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">GitHub Profile</a>
+        <a href="https://github.com/Salman-Tabatabai-AI" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> GitHub Profile
+        </a>
         
         <a href="mailto:salman.tabatabai@gmail.com" class="btn btn-secondary btn-email" onclick="copyEmail(event)">
-            <span>&#9993;</span> <span id="email-text">Email: salman.tabatabai@gmail.com</span>
+            <i class="fas fa-envelope"></i> 
+            <span id="email-text">Email: salman.tabatabai@gmail.com</span>
         </a>
 
         <div class="desktop-only">
@@ -171,24 +182,21 @@
 
     <script>
         function copyEmail(e) {
-            e.preventDefault(); // Stop the mail app from opening automatically
+            e.preventDefault(); 
             const email = "salman.tabatabai@gmail.com";
-            const btn = e.currentTarget; // use currentTarget to get the <a> tag
+            const btn = e.currentTarget; 
             const textSpan = document.getElementById("email-text");
             
             navigator.clipboard.writeText(email).then(() => {
-                // Visual feedback: Change text temporarily
                 const originalText = textSpan.innerText;
                 textSpan.innerText = "Address Copied to Clipboard!";
                 btn.style.backgroundColor = "#e8f0fe"; 
                 
-                // Reset after 2 seconds
                 setTimeout(() => {
                     textSpan.innerText = originalText;
                     btn.style.backgroundColor = ""; 
                 }, 2000);
             }).catch(err => {
-                // If copy fails, fallback to opening the mail link normally
                 window.location.href = "mailto:" + email;
             });
         }
